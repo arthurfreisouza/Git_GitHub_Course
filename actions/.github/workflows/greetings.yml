@@ -1,0 +1,24 @@
+name: Greetings Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  greet-on-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display "Good Day"
+        run: echo "Good Day"
+
+  greet-on-pull-request:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display "Good Night"
+        run: echo "Good Night"
